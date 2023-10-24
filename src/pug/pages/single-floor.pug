@@ -1,0 +1,104 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'single-floor'
+    var id_page = 'id-page-single-floor'
+    var class_page = 'class-page-single-floor'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/single-floor.bundle.js')
+block content
+  include ../components/floot-tooltip.pug
+  .single-floor
+    .single-floor__left 
+      .single-floor-title INFO
+      table.s3d-info__table
+        tbody
+          tr.s3d-info__row(data-text='0')
+            th.s3d-info__name Всього:
+            th.s3d-info__value(data-sale='0') 10
+          tr.s3d-info__row(data-text='1')
+            th.s3d-info__name З терасою:
+            th.s3d-info__value 4
+          tr.s3d-info__row(data-text='2') 
+            th.s3d-info__name Вільних:
+            th.s3d-info__value 8
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" class="s3d-compass">
+        <circle cx="24" cy="24" r="24" fill="#F4F4F4"/>
+        <circle cx="24" cy="24" r="21.4154" stroke="#576F80" stroke-width="0.738462"/>
+        <path d="M45.7846 24.3692C45.7846 12.134 36.1966 2.21538 24.3692 2.21538" stroke="#576F80" stroke-width="2.21538"/>
+        <path d="M16.094 28H14.078V18.2H22.282V28H20.28V20.006H16.094V28ZM26.471 28H24.455V18.2H26.471V21.868H30.895V18.2H32.897V28H30.895V23.702H26.471V28Z" fill="#576F80"/>
+      </svg>
+
+    .single-floor__center 
+      .single-floor-title IMG
+      <svg viewBox="0 0 1600 2771" xmlns="http://www.w3.org/2000/svg" class="s3d-floor__svg">
+        <symbol id="closed" viewBox="0 0 30 30">
+            <path d="M30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30C23.2843 30 30 23.2843 30 15Z" fill="#A0A6AE"></path>
+            <path d="M11.8877 13.5517H12.3562V12.1666C12.3562 10.7513 13.5421 9.59961 14.9996 9.59961C16.4578 9.59961 17.6434 10.7511 17.6434 12.1666V13.5517H18.1118C18.3813 13.5517 18.5997 13.7638 18.5997 14.0254V18.7259C18.5997 18.9875 18.3813 19.1996 18.1118 19.1996H11.8876C11.6187 19.1996 11.3997 18.9875 11.3997 18.7259V14.0254C11.3997 13.7638 11.6187 13.5517 11.8877 13.5517ZM16.6677 12.1666C16.6677 11.2734 15.9195 10.5471 14.9997 10.5471C14.08 10.5471 13.3319 11.2734 13.3319 12.1666V13.5517H16.6677V12.1666Z" fill="#2A3341"></path>
+        </symbol>
+        <image src="./assets/images/genplan-img.jpg" xlink:href="./assets/images/genplan-img.jpg" x="0" y="0" height="100%" width="100%"></image>
+        <a xlink:href="/single-flat?id=668" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="231" class="s3d-flat__polygon js-s3d-flat__polygon s3d-flat-active polygon__active-flat" points="576,1877.5,952.5,1877.5,953,1857.5,1008.5,1857.5,1008,1750.5,953,1750,951.5,1583.5,576,1582.5,575.5,1828,601,1827.5,601.5,1866,576.5,1867" data-section="2" data-area="47.75" data-life-area="0" data-rooms="2" data-type="S3" data-id="454" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=669" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="232" class="s3d-flat__polygon js-s3d-flat__polygon " points="590,2459,112,2456,112.5,2725,590.5,2725" data-section="2" data-area="56.11" data-life-area="0" data-rooms="2" data-type="S3" data-id="457" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=670" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="233" class="s3d-flat__polygon js-s3d-flat__polygon " points="461.5,2174,112,2172,112,2456,489.5,2458,489,2202.5,461.5,2202" data-section="2" data-area="50.69" data-life-area="0" data-rooms="2" data-type="S3" data-id="458" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=671" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="234" class="s3d-flat__polygon js-s3d-flat__polygon " points="112,2172,112.5,1890.5,471.5,1890,470.5,1936.5,489.5,1937,489.5,2174,461.5,2174" data-section="2" data-area="49.14" data-life-area="0" data-rooms="2" data-type="S3" data-id="459" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=672" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="235" class="s3d-flat__polygon js-s3d-flat__polygon " points="112.5,1890.5,113,1601,489,1601,489,1891" data-section="2" data-area="49.92" data-life-area="0" data-rooms="2" data-type="S3" data-id="460" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=673" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="236" class="s3d-flat__polygon js-s3d-flat__polygon " points="112.5,1311.5,113,1601,489,1601,490,1312" data-section="2" data-area="49.61" data-life-area="0" data-rooms="2" data-type="S3" data-id="461" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=674" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="237" class="s3d-flat__polygon js-s3d-flat__polygon " points="489.5,1013,112.5,1012,112.5,1311.5,490,1312" data-section="2" data-area="50.1" data-life-area="0" data-rooms="2" data-type="S3" data-id="462" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=675" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="238" class="s3d-flat__polygon js-s3d-flat__polygon " points="449,771,113.5,771,113,322,531,322,530.5,698.5,449.5,699" data-section="2" data-area="85.54" data-life-area="0" data-rooms="3" data-type="S3" data-id="463" data-sale="0" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=676" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="239" class="s3d-flat__polygon js-s3d-flat__polygon " points="530.5,698.5,531,322,792.5,322,792.5,61.5,952,61,952.5,698.5" data-section="2" data-area="82.33" data-life-area="0" data-rooms="3" data-type="S3" data-id="464" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=677" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="240" class="s3d-flat__polygon js-s3d-flat__polygon " points="952.5,698.5,952,61,1252.5,61.5,1249.5,699" data-section="2" data-area="66.08" data-life-area="0" data-rooms="3" data-type="S3" data-id="465" data-sale="0" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=678" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="241" class="s3d-flat__polygon js-s3d-flat__polygon " points="1252.5,322.5,1563,322,1563.5,366,1558,366,1558.5,582,1563.5,583,1563,628.5,1556,628,1556,742,1402.5,741.5,1401.5,699.5,1249.5,699" data-section="2" data-area="54.15" data-life-area="0" data-rooms="2" data-type="S3" data-id="466" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=679" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="242" class="s3d-flat__polygon js-s3d-flat__polygon " points="1556,742,1402.5,741.5,1402.5,784.5,1163,785,1162.5,1163,1281,1162.5,1281,1212.5,1376.5,1212.5,1376.5,1162,1563.5,1162,1564,1116,1557,1115.5,1557,903,1563,902,1563.5,857,1556.5,855.5" data-section="2" data-area="66.65" data-life-area="0" data-rooms="3" data-type="S3" data-id="467" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=680" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="243" class="s3d-flat__polygon js-s3d-flat__polygon " points="1163,785,942.5,786,942,826,949.5,826,949.5,1163,1162.5,1163" data-section="2" data-area="35.41" data-life-area="0" data-rooms="1" data-type="S3" data-id="468" data-sale="0" data-sold="false" data-tippy-element=""></polygon></a>
+        <a xlink:href="/single-flat?id=681" xlink:title="The link leads to an example page that is of little interest"><polygon data-number="244" class="s3d-flat__polygon js-s3d-flat__polygon " points="949,1136,734,1134.5,734,1043.5,573,1042.5,574,1445,952,1444.5,952,1433.5,1007,1433,1006.5,1317,951,1317,949.5,1163" data-section="2" data-area="56.54" data-life-area="0" data-rooms="2" data-type="S3" data-id="469" data-sale="1" data-sold="false" data-tippy-element=""></polygon></a>
+      </svg>
+      button.s3d__callback.js-popup-open(data-open-call-popup='' data-popup-type='callback')
+        .s3d__callback-icon
+          <svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="65" height="65" rx="32.5" fill="#576F80"/>
+            <path d="M40.3 22.75H24.7C23.6226 22.75 22.7597 23.6226 22.7597 24.7L22.75 42.25L26.65 38.35H40.3C41.3773 38.35 42.25 37.4774 42.25 36.4V24.7C42.25 23.6226 41.3773 22.75 40.3 22.75ZM29.575 31.525H27.625V29.575H29.575V31.525ZM33.475 31.525H31.525V29.575H33.475V31.525ZM37.375 31.525H35.425V29.575H37.375V31.525Z" fill="#EDE2E7"/>
+            </svg>
+        span
+          | &Dcy;&iukcy;&zcy;&ncy;&acy;&tcy;&icy;&scy;&softcy; &vcy;&acy;&rcy;&tcy;&iukcy;&scy;&tcy;&softcy;
+      include ../components/floor-nav.pug
+    .single-floor__right 
+      .single-floor-title 
+        span(data-info-flat="rooms")
+        span -кімнатна
+      table.s3d-info__table
+        tbody
+          tr.s3d-info__row(data-text='0')
+            th.s3d-info__name Загальна площа:
+            th.s3d-info__value(data-sale='0') 
+              span(data-info-flat="area")
+              span м²
+          tr.s3d-info__row(data-text='1')
+            th.s3d-info__name Тип:
+            th.s3d-info__value 
+              span(data-info-flat="type")
+          tr.s3d-info__row(data-text='2')
+            th.s3d-info__name Номер:
+            th.s3d-info__value 
+              span(data-info-flat="number")
+      <a href="/" class="s3d-flat__to--floor" id="s3d-to-floor">
+        <span>Перейти до генплану</span>
+        <div class="s3d-flat__to--floor-icon">
+            <svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 6.5L1 3V10L5 6.5Z" stroke-width="2"></path>
+            </svg>
+        </div>
+      </a>

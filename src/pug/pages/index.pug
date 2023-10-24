@@ -1,0 +1,63 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'project'
+    var id_page = 'home'
+    var class_page = 'home '
+    var genplan = [
+      ['parking', 'Підземні паркінги', '#4AC1F3 '],
+      ['hospital', 'Лікарня', '#4AF3DF'],
+      ['park', 'Паркова зона', '#E6F34A'],
+      ['barbeque', 'Зона барбекю', '#F3C44A'],
+      ['dogs', 'Зона для вигулу собак', '#F3734A'],
+      ['greenzone', 'Зелені зони', '#4AF384'],
+      ['playground', 'Дитячі майданчики', '#F34AEC'],
+      ['sportyard', 'Спортивні майданчики', '#4D4AF3'],
+      ['workoutzone', 'Workout зони', '#F34A4A'],
+    ]
+
+block meta
+  title= 'Щасливий у Дніпрі'
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+block content
+  .genplan-layout
+    .genplan-svg
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="1920" height="970" fill="none" viewBox="0 0 1920 970" preserveAspectRatio="xMaxYMid slice">
+        <g class="1920 Ð²Ð¸Ð±ÑÑ Ð½Ð° 3Ð´ Ð¼Ð¾Ð´ÐµÐ»Ñ Ð¿Ð¾ ÐºÐ²Ð°ÑÑÐ¸ÑÐµ">
+          <image width="100%" height="100%" href="./assets/images/genplan-img.jpg"/>
+          <a xlink:href="/single-floor?floor=2" xlink:title="The link leads to an example page that is of little interest">
+            <path fill="#F4F4F4" fill-opacity=".2" stroke="#EDE2E7" stroke-width="2" d="m1605 488-104-31.5-166.5 44v22l-32-7.5-82 18.5-88.5 26v12l-33-3.5-47 9.5-135.5 34v14h-33L865 628l-41.5 9v9.5H782l-39 9v-30l40.5-10h19l21-4V603l41.5-12h18.5l33-8.5V573l135.5-39.5h26.5L1132 517v-8l88.5-26.5h28l86-26v-12l166.5-51 105.5 39 34.5-8.5 70.5 21.5V472l43.5 12.5V531l-48-13.5v-16l-66-22-36 8.5Z" data-floor="2"/>
+          </a>
+          <a xlink:href="/single-floor?floor=3" xlink:title="The link leads to an example page that is of little interest">
+            <path fill="#F4F4F4" fill-opacity=".2" stroke="#EDE2E7" stroke-width="2" d="M1605 542.5 1501 511l-166.5 44v22l-32-7.5-82 18.5-88.5 26v12l-33-3.5-47 9.5-135.5 34v14h-33l-18.5 2.5-41.5 9v9.5H782l-39 9v-30l40.5-10h19l21-4v-8.5l41.5-12h18.5l33-8.5v-9.5L1052 588h26.5l53.5-16.5v-8l88.5-26.5h28l86-26v-12l166.5-51 105.5 39 34.5-8.5 70.5 21.5v26.5L1755 539v46.5l-48-13.5v-16l-66-22-36 8.5Z" data-floor="3"/>
+          </a>
+          <a xlink:href="/single-floor?floor=4" xlink:title="The link leads to an example page that is of little interest">
+            <path fill="#F4F4F4" fill-opacity=".2" stroke="#EDE2E7" stroke-width="2" d="M1605 618.5 1501 587l-166.5 44v22l-32-7.5-82 18.5-88.5 26v12l-33-3.5-47 9.5-135.5 34v14h-33l-18.5 2.5-41.5 9v9.5H782l-39 9v-30l40.5-10h19l21-4v-8.5l41.5-12h18.5l33-8.5v-9.5L1052 664h26.5l53.5-16.5v-8l88.5-26.5h28l86-26v-12l166.5-51 105.5 39 34.5-8.5 70.5 21.5v26.5L1755 615v46.5l-48-13.5v-16l-66-22-36 8.5Z" data-floor="4"/>
+          </a>
+          <a xlink:href="/single-floor?floor=5" xlink:title="The link leads to an example page that is of little interest">
+            <path fill="#F4F4F4" fill-opacity=".2" stroke="#EDE2E7" stroke-width="2" d="M1605 673.5 1501 642l-166.5 44v22l-32-7.5-82 18.5-88.5 26v12l-33-3.5-47 9.5-135.5 34v14h-33l-18.5 2.5-41.5 9v9.5H782l-39 9v-30l40.5-10h19l21-4v-8.5l41.5-12h18.5l33-8.5v-9.5L1052 719h26.5l53.5-16.5v-8l88.5-26.5h28l86-26v-12l166.5-51 105.5 39 34.5-8.5 70.5 21.5v26.5L1755 670v46.5l-48-13.5v-16l-66-22-36 8.5Z" data-floor="5"/>
+          </a>
+          <a xlink:href="/single-floor?floor=6" xlink:title="The link leads to an example page that is of little interest">
+            <path fill="#F4F4F4" fill-opacity=".2" stroke="#EDE2E7" stroke-width="2" d="M1605 411.5 1501 380l-166.5 44v22l-32-7.5-82 18.5-88.5 26v12l-33-3.5-47 9.5-135.5 34v14h-33l-18.5 2.5-41.5 9v9.5H782l-39 9v-30l40.5-10h19l21-4v-8.5l41.5-12h18.5l33-8.5v-9.5L1052 457h26.5l53.5-16.5v-8l88.5-26.5h28l86-26v-12l166.5-51 105.5 39 34.5-8.5 70.5 21.5v26.5L1755 408v46.5l-48-13.5v-16l-66-22-36 8.5Z" data-floor="6"/>
+          </a>
+          <a xlink:href="/single-floor?floor=7" xlink:title="The link leads to an example page that is of little interest">
+            <path fill="#F4F4F4" fill-opacity=".2" stroke="#EDE2E7" stroke-width="2" d="M1624 340.5 1520 309l-166.5 44v22l-32-7.5-82 18.5-88.5 26v12l-33-3.5-47 9.5-135.5 34v14h-33l-18.5 2.5-41.5 9v9.5H801l-39 9v-30l40.5-10h19l21-4v-8.5l41.5-12h18.5l33-8.5v-9.5L1071 386h26.5l53.5-16.5v-8l88.5-26.5h28l86-26v-12l166.5-51 105.5 39 34.5-8.5 70.5 21.5v26.5L1774 337v46.5l-48-13.5v-16l-66-22-36 8.5Z" data-floor="7"/>
+          </a>
+        </g>
+      </svg>
+    .genplan-floor-tooltip(data-genplan-tooltip)
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" class="genplan-floor-tooltip__close">
+        <path d="M23 23L1 1M1 23L23 1L1 23Z" stroke="#576F80"/>
+      </svg>
+      .genplan-floor-tooltip__digit(data-genplan-tooltip-text) 5
+      .genplan-floor-tooltip__text() поверх
+    .genplan-title Планування
+block footer
+
+block header

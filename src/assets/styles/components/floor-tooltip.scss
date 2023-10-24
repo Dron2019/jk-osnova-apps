@@ -1,0 +1,118 @@
+.floor-tooltip {
+    display: inline-flex;
+    padding: 11px 23px;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid var(--Blue, #576F80);
+    background: var(--white, #F4F4F4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: .25s ease-out;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 3;
+    pointer-events: none;
+
+
+
+    color: var(--Blue, #576F80);
+
+/* 1920/Button */
+font-family: Geometria;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 130%; /* 20.8px */
+text-transform: uppercase;
+    
+    &__close,
+    &__title {
+        display: none;
+    }
+
+    [data-mobile-tooltip-link] {
+        color: var(--Blue, #576F80);;
+    }
+
+    @at-root html:not(.desktop) &{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        pointer-events: all;
+    }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+html:not(.desktop) {
+    .floor-tooltip {
+        display: flex;
+        width: 344px;
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        border: 1px solid var(--Blue, #576F80);
+        background: var(--Orange, #FFBC64);
+        &__close {
+            display: block;
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        &__title {
+            display: block;
+            font-family: $default-font2;
+            color: var(--Blue, #576F80);
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 140%; /* 44.8px */
+            letter-spacing: -0.64px;
+            text-transform: uppercase;
+        }
+        &>div {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            &>span:first-child {
+                flex-grow: 1;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                &:after {
+                    content: '';
+                    display: inline-block;
+                    flex-grow: 1;
+                    height: 1px;
+                    align-self: flex-end;
+                    background-color: rgba(134, 137, 126, 0.25);
+                    margin-bottom: 4px;
+                    margin-left: 12px;
+                    margin-right: 12px;
+                }
+            }
+        }
+
+        [data-mobile-tooltip-link] {
+            display: flex;
+            height: 48px;
+            padding: 18px;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            align-self: stretch;
+            text-decoration: none;
+            border: 1px solid var(--Blue, #576F80);
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+    }
+}

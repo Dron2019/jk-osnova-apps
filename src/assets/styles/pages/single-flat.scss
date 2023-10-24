@@ -1,0 +1,52 @@
+.single-flat {
+
+}
+
+html:not(.desktop) {
+    .single-flat {
+        .single-floor__right {
+            display: flex;
+        }
+    }
+}
+
+.s3d-flat__to--floor {
+    display: flex;
+    color: var(--Blue, #576F80);
+
+    /* 1920/Button */
+    font-family: Geometria;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%; /* 20.8px */
+    text-transform: uppercase;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .s3d-flat__to--floor-icon {
+        display: flex;
+        align-items: center;
+        width: 7px;
+        height: 14px;
+        margin-left: 25px;
+        svg {
+            stroke: var(--Blue, #576F80);
+            fill: var(--Blue, #576F80);
+            transform: translateX(0);
+        }
+    }
+    @media screen and (max-width: 1600px) {
+        .s3d-flat__to--floor-icon {
+            width: auto;
+            height: 10px;
+            margin-left: 15px;
+        }
+    }
+
+}
+
+
+
+

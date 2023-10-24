@@ -1,0 +1,60 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'single-flat'
+    var id_page = 'id-page-single-flat'
+    var class_page = 'class-page-single-flat'
+    var breadcrumbsSubitem = [
+      {
+        label: 'About',
+        link: pagesLink[0].about
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/single-flat.bundle.js')
+block content
+  include ../components/floot-tooltip.pug
+  .single-floor.single-flat
+    .single-floor__left
+      .single-floor-title 3-кімнатна
+      table.s3d-info__table
+        tbody
+          tr.s3d-info__row(data-text='0')
+            th.s3d-info__name &Scy;&tcy;&acy;&tcy;&ucy;&scy;:
+            th.s3d-info__value(data-sale='0') &Pcy;&rcy;&ocy;&dcy;&acy;&ncy;&ocy;
+          tr.s3d-info__row(data-text='1')
+            th.s3d-info__name &Scy;&iecy;&kcy;&tscy;&iukcy;&yacy;:
+            th.s3d-info__value 1
+    .single-floor__center
+      img(data-flat-img="#" src="./assets/images/genplan-img.jpg")
+      <button class="s3d__callback js-popup-open" data-open-call-popup="" data-popup-type="callback">
+        <div class="s3d__callback-icon">
+          <svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="65" height="65" rx="32.5" fill="#576F80"></rect>
+            <path d="M40.3 22.75H24.7C23.6226 22.75 22.7597 23.6226 22.7597 24.7L22.75 42.25L26.65 38.35H40.3C41.3773 38.35 42.25 37.4774 42.25 36.4V24.7C42.25 23.6226 41.3773 22.75 40.3 22.75ZM29.575 31.525H27.625V29.575H29.575V31.525ZM33.475 31.525H31.525V29.575H33.475V31.525ZM37.375 31.525H35.425V29.575H37.375V31.525Z" fill="#EDE2E7"></path>
+          </svg>
+        </div>
+        <span>Дізнатись вартість</span>
+      </button>
+      <a href="#" class="s3d-flat__pdf js-s3d__create-pdf">PDF</a>
+    .single-floor__right
+      div(data-floor-container)
+      include ../components/floor-nav.pug
+      <a href="/single-floor?floor=10" class="s3d-flat__to--floor" id="s3d-to-floor">
+        <span>Перейти до плану поверху</span>
+        <div class="s3d-flat__to--floor-icon">
+          <svg width="7" height="13" viewBox="0 0 7 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 6.5L1 3V10L5 6.5Z" stroke-width="2"></path>
+          </svg>
+        </div>
+      </a>
+block footer
+block header

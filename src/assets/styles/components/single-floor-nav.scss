@@ -1,0 +1,75 @@
+.s3d-floor__nav {
+    grid-area: nav;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 20px;
+    grid-auto-rows: auto;
+    align-items: center;
+    justify-self: flex-end;
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.4em;
+    color: var(--Blue, #576F80);
+    width: max-content;
+
+    --size-btn-circle: 65px;
+    justify-items: center;
+    p {
+        font-family: $default-font2;
+    }
+    .s3d-floor__nav-title {
+        color: var(--Blue, #576F80); 
+        font-family: $default-font2;
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 24.7px */
+        margin-bottom: 16px;
+        text-transform: uppercase;
+    }
+
+}
+.s3d-floor__nav-title {
+    grid-column: 1/-1;
+    font-size: 19px;
+    line-height: 1.3em;
+    font-weight: 500;
+    color: var(--Blue, #576F80);
+    font-family: $default-font, sans-serif;
+    text-align: center;
+}
+
+.s3d-floor__nav button[disabled] {
+    border-color: #FFFFFF;
+    pointer-events: none;
+}
+@media screen and (max-width: 1600px) {
+    .s3d-floor__nav [data-floor_btn] {
+    }
+}
+.s3d-floor__nav button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--size-btn-circle);
+    width: var(--size-btn-circle);
+    cursor: pointer;
+    border: 1px solid rgba(152, 152, 152, 0.25);
+    border-radius: 50%;
+    background: none;
+    transition: border 0.4s ease-in-out;
+}
+
+.s3d-floor__nav svg {
+    height: 12px;
+    width: 8px;
+    stroke: var(--Blue, #576F80);
+    fill: none;
+    pointer-events: none;
+}
+
+html:not(.desktop) {
+    .s3d-floor__nav {
+        --size-btn-circle: 48px;
+    }
+}
