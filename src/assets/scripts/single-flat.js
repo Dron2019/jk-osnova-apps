@@ -131,7 +131,7 @@ if (document.documentElement.classList.contains('desktop')) {
 
 
 document.body.addEventListener('click', (evt) => {
-    const target = evt.target.closest('img');
+    const target = evt.target.closest('[data-flat-img]');
     if (!target) return;
 
     new Popup(target.getAttribute('src')).render();

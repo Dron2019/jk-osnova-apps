@@ -39,6 +39,7 @@
     text-align: center;
 }
 
+.s3d-floor__nav a[disabled],
 .s3d-floor__nav button[disabled] {
     border-color: #FFFFFF;
     pointer-events: none;
