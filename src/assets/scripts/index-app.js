@@ -3,20 +3,22 @@ import 'current-device';
 
 if (document.documentElement.classList.contains('desktop')) {
   function handleTooltip(evt, action) {
-      const toolip = document.querySelector('[data-genplan-tooltip]');
-      const selfWidth = toolip.getBoundingClientRect().width;
-      const text = toolip.querySelector('[data-genplan-tooltip-text]');
-  
-      return function(evt, action) {
-        action === 'off' ? 
-        toolip.classList.remove('active') : 
-        toolip.classList.add('active');
-        const { y  } = evt.target.getBBox();
-        const { left  } = evt.target.getBoundingClientRect();
-        toolip.style.transform = `translate(${Math.max(left- selfWidth, 0)}px, ${y}px)`;
-        text.textContent = evt.target.dataset.floor;
-      }
-  
+    const toolip = document.querySelector('[data-genplan-tooltip]');
+    const selfWidth = toolip.getBoundingClientRect().width;
+    const text = toolip.querySelector('[data-genplan-tooltip-text]');
+
+    
+    return function(evt, action) {
+      action === 'off' ? 
+      toolip.classList.remove('active') : 
+      toolip.classList.add('active');
+      const { y  } = evt.target.getBBox();
+      console.log(toolip.getBoundingClientRect());
+      const { left, top  } = evt.target.getBoundingClientRect();
+      toolip.style.transform = `translate(${Math.max(left- toolip.getBoundingClientRect().width, 0)}px, ${evt.pageY - toolip.getBoundingClientRect().width / 2}px)`;
+      text.textContent = evt.target.dataset.floor;
+    }
+
   }
   
   const tooltip = handleTooltip();
