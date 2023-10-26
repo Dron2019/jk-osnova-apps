@@ -1,63 +1,12 @@
 import 'current-device';
 const { default: createFloorSvg } = require("./modules/createFloorSvg");
-import * as flats from './testData/flats.json';
-import * as mockFloor from './testData/mockFloor.json';
 import { useState } from './modules/helpers/helpers';
 import Popup from './modules/popup/PopupView';
-
-const flats1 = flats.default;
-const floorInfo = mockFloor.default;
+import './modules/formCallHandler';
 
 
-const [ floorData, setFloorData, usefloorDataEffect ] = useState({});
 
 
-usefloorDataEffect(({ floor }) => {
-    const a = createFloorSvg(false, './assets/images/genplan-img.jpg', flats1, floorInfo.size, 471, floorInfo.flatsIds);
-    document.querySelector('[data-floor-container]').innerHTML = a;
-    
-    document.querySelectorAll('[data-current-floor]').forEach(el => el.textContent = floor);
-    document.querySelectorAll('[data-floor_direction]').forEach(el => {
-        if (el.dataset.floor_direction === 'prev') {
-            el.dataset.floor_value = +floor - 1;
-            if ((+floor - 1) <= 0) {
-                el.setAttribute('disabled', true);
-            } else {
-                el.removeAttribute('disabled');
-
-            }
-        }
-        if (el.dataset.floor_direction === 'next') {
-            el.dataset.floor_value = +floor + 1
-        }
-    });
-
-});
-
-
-const params = new URLSearchParams(window.location.search);
-
-const flatId = params.get('id');
-
-const flatData = flats1.find(el => el.id == flatId);
-
-if (flatData) {
-    document.querySelector('[data-flat-img]').src = flatData.img_big;
-}
-
-setFloorData({
-    ...floorData,
-    floor: 1
-})
-
-document.body.addEventListener('click', (evt) => {
-    const target = evt.target.closest('[data-floor_btn]');
-    if (!target) return;
-    setFloorData({
-        ...floorData(),
-        floor: target.dataset.floor_value
-    })
-})
 
 
 
@@ -137,16 +86,3 @@ document.body.addEventListener('click', (evt) => {
     new Popup(target.getAttribute('src')).render();
 })
 
-
-document.body.addEventListener('click',function(evt){
-    const target = evt.target.closest('.js-popup-open');
-    if (!target) return;
-  
-    document.querySelector('.formContacts_input').scrollIntoView({ 
-      behavior: 'smooth'
-    });
-    setTimeout(() => {
-      document.querySelector('.formContacts_input').focus();
-    }, 1000);
-  
-  });
