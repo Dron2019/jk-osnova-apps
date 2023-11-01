@@ -81,7 +81,7 @@ function handleMobileFloorClick() {
                 <a data-mobile-tooltip-link href="#">Перейти до квартири</a>
             `)
         }
-        tooltip.querySelector('[data-mobile-tooltip-link]').setAttribute('href', `/single-flat?id=${flatId}`);
+        tooltip.querySelector('[data-mobile-tooltip-link]').setAttribute('href', `/single-flat-smarto?id=${flatId}`);
     }
   });
   

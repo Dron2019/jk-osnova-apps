@@ -56,7 +56,7 @@ const tooltip = handleTooltip({
                 <a data-mobile-tooltip-link href="#">Перейти</a>
             `)
         }
-        tooltip.querySelector('[data-mobile-tooltip-link]').setAttribute('href', `/single-flat?id=${flatId}`);
+        tooltip.querySelector('[data-mobile-tooltip-link]').setAttribute('href', `/single-flat-smarto?id=${flatId}`);
     }
 });
 
