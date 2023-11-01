@@ -111,6 +111,22 @@
     }
 }
 
+.desktop {
+    .single-floor {
+        &__right {
+            .s3d-info__table {
+                margin-top: auto;
+    margin-bottom: auto;
+            }
+            [data-floor-container] {
+                margin-top: auto;
+            }
+            .s3d-floor__nav {
+                margin-top: 20px;
+            }
+        }
+    }
+}
 
 @media screen and (max-width:1080px){
     .single-floor {

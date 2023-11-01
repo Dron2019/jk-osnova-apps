@@ -13,6 +13,7 @@ import './modules/formCallHandler';
 function handleTooltip(params = {}) {
     const toolip = document.querySelector('.floor-tooltip');
     const selfWidth = toolip.getBoundingClientRect().width;
+    const selfHeight = toolip.getBoundingClientRect().height;
     const infoItems = document.querySelectorAll('[data-info-flat]');
     let state = 'off';
     
@@ -32,7 +33,7 @@ function handleTooltip(params = {}) {
         const { left, top  } = target.getBoundingClientRect();
 
         const edgeX = Math.min(left - selfWidth / 2, window.innerWidth - selfWidth);
-        params.dontPositionTooltip ? null : toolip.style.transform = `translate(${edgeX}px, ${top}px)`;
+        params.dontPositionTooltip ? null : toolip.style.transform = `translate(${edgeX}px, ${top - selfHeight}px)`;
 
         infoItems.forEach(el => {
             el.textContent  = target.dataset[el.dataset.infoFlat]

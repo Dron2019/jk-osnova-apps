@@ -48,6 +48,8 @@
     .s3d-floor__nav [data-floor_btn] {
     }
 }
+
+.s3d-floor__nav a,
 .s3d-floor__nav button {
     display: flex;
     justify-content: center;
@@ -67,6 +69,19 @@
     stroke: var(--Blue, #576F80);
     fill: none;
     pointer-events: none;
+    path {
+        fill: var(--Blue, #576F80);
+
+    }
+}
+
+.s3d-floor__nav a[disabled] {
+    svg {
+        path {
+            fill: #ffffff;
+            stroke: #ffffff;
+        }
+    }
 }
 
 html:not(.desktop) {

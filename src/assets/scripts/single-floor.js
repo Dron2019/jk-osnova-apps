@@ -22,6 +22,15 @@ document.querySelectorAll('svg [data-id]').forEach(el => {
     console.log(evt.target);
     tooltip(evt);
   });
+
+  if (document.documentElement.classList.contains('desktop')) {
+    el.addEventListener('mouseleave',function(evt){
+      const infoItems = document.querySelectorAll('[data-info-flat]');
+      infoItems.forEach(el => {
+        el.textContent  = ''
+      })
+    });
+  }
 })
 
 
