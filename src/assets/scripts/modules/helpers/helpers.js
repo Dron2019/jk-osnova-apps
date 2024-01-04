@@ -14,7 +14,7 @@ export const eases = {
 };
 
 export const langDetect = () => {
-  const lang = document.documentElement.getAttribute('lang') || 'en';
+  const lang = document.documentElement.getAttribute('lang') || 'ua';
   if (lang === 'ua') return 'uk';
   return lang;
 };

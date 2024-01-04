@@ -1,5 +1,6 @@
 import 'current-device';
-import './modules/formCallHandler';
+import './modules/form';
+
 
 
 

@@ -114,10 +114,10 @@ export default class SexyInput {
     if (this.typeInput === 'phone') {
       /* eslint-disable */
       input.setAttribute('inputmode', 'tel');
-      input.intTelIput = intlTelInput(input, {
-        preferredCountries: ['ua', 'pl'],
-        autoPlaceholder: 'off',
-      });
+      // input.intTelIput = intlTelInput(input, {
+      //   preferredCountries: ['ua', 'pl'],
+      //   autoPlaceholder: 'off',
+      // });
       let cleave = new Cleave(input, {
         /* eslint-enable */
         numericOnly: true,
@@ -125,48 +125,48 @@ export default class SexyInput {
         blocks: [4, 2, 3, 2, 2],
         delimiters: [' ', ' ', ' ', ''],
       });
-      input.addEventListener('countrychange', () => {
-        const currentCountry = input.intTelIput.getSelectedCountryData();
-        const { dialCode } = currentCountry;
-        const selfInput = input;
-        let maskPartForUkraine = currentCountry.iso2 === 'ua' ? 2 : 3;
+      // input.addEventListener('countrychange', () => {
+      //   const currentCountry = input.intTelIput.getSelectedCountryData();
+      //   const { dialCode } = currentCountry;
+      //   const selfInput = input;
+      //   let maskPartForUkraine = currentCountry.iso2 === 'ua' ? 2 : 3;
 
-        //'tr', 'kz', 'th', 'de', 'ae'
-        switch (currentCountry.iso2) {
-          case 'tr':
-            maskPartForUkraine = 3;
-            break;
-          case 'kz':
-            maskPartForUkraine = 2;
+      //   //'tr', 'kz', 'th', 'de', 'ae'
+      //   switch (currentCountry.iso2) {
+      //     case 'tr':
+      //       maskPartForUkraine = 3;
+      //       break;
+      //     case 'kz':
+      //       maskPartForUkraine = 2;
             
-            break;
-          case 'th':
-            maskPartForUkraine = 3;
+      //       break;
+      //     case 'th':
+      //       maskPartForUkraine = 3;
             
-            break;
-          case 'de':
-            maskPartForUkraine = 3;
+      //       break;
+      //     case 'de':
+      //       maskPartForUkraine = 3;
             
-            break;
-          case 'ae':
-              maskPartForUkraine = 4;
+      //       break;
+      //     case 'ae':
+      //         maskPartForUkraine = 4;
               
-            break;
+      //       break;
         
-          default:
-            break;
-        }
-        cleave.destroy();
-        selfInput.value = '';
-        cleave = new Cleave(input, {
-          numericOnly: true,
-          delimiter: '-',
-          prefix: `+${dialCode}`,
-          /* В код страны добавляется символ + */
-          blocks: [dialCode.toString().length + 1, maskPartForUkraine, 3, 2, 2],
-          delimiters: [' ', ' ', ' ', ''],
-        });
-      });
+      //     default:
+      //       break;
+      //   }
+      //   cleave.destroy();
+      //   selfInput.value = '';
+      //   cleave = new Cleave(input, {
+      //     numericOnly: true,
+      //     delimiter: '-',
+      //     prefix: `+${dialCode}`,
+      //     /* В код страны добавляется символ + */
+      //     blocks: [dialCode.toString().length + 1, maskPartForUkraine, 3, 2, 2],
+      //     delimiters: [' ', ' ', ' ', ''],
+      //   });
+      // });
     }
 
     if (this.animation === 'focus') {

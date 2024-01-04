@@ -165,7 +165,7 @@
   @include from(1023px) {
     &:hover {
       svg {
-        transform: translateX(-30px);
+        // transform: translateX(-30px);
       }
     }
   }

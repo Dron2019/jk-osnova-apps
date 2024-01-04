@@ -11,10 +11,8 @@ import { useState } from './helpers/helpers';
  * form handlers start
  */
 const forms = [
-    '[data-form="top-form"]',
-    '[data-form="bottom-form"]',
+    '[data-smarto-form]'
   ];
-  console.log('ffff');
   forms.forEach((form) => {
     const $form = document.querySelector(form);
     if ($form) {
@@ -61,13 +59,6 @@ const forms = [
               valid: false,
               error: [],
             },
-            email: {
-              inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-email]') }),
-              rule: yup.string().required(i18next.t('required')).trim(),
-              defaultMessage: i18next.t('email'),
-              valid: false,
-              error: [],
-            },
   
             phone: {
               inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-phone]'), typeInput: 'phone' }),
@@ -106,12 +97,13 @@ useSetPopupEffect(val => {
 
 
 document.body.addEventListener('click', (evt) => {
+  console.log('efef');
   const target = evt.target.closest('[data-form-popup-call]');
   if (!target) return;
   setFormPopup(true);
 })
 document.body.addEventListener('click', (evt) => {
-  const target = evt.target.closest('[data-form-popup-close]');
+  const target = evt.target.closest('[data-close-call-popup]');
   if (!target) return;
   setFormPopup(false);
 })

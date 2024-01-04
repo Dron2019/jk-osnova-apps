@@ -1,5 +1,5 @@
 import 'current-device';
-
+import './modules/form';
 
 if (document.documentElement.classList.contains('desktop')) {
   function handleTooltip(evt, action) {

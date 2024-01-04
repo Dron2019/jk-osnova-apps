@@ -1,289 +1,405 @@
-.form-wrapper, .form-wrapper-2 {
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-end;
-  background: rgba(31, 32, 38, 0.4);
+$default-font3: "Geometria", sans-serif;
+$default-font4: "Geometria", sans-serif;
+$dgrc: rgb(87, 111, 128);
+$hc: #86897E;
+$main-bcg: #F4F4F4;
+$gc-text: #626F75;
+$gc2: #86897E80;
+$popup-close: rgba(0, 0, 0, 0.75);
+
+.popup {
   height: 100vh;
-  width: 100%;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  visibility: hidden;
-  overflow: hidden;
-  z-index: 102;
+  width: 100vw;
 
-  .form {
-    height: auto;
-    width: 800px;
-    background: $wc;
-    display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include to(1024px) {
     flex-direction: column;
-    align-items: flex-start;
-    align-content: flex-start;
-    justify-content: center;
-    position: relative;
-    padding: 20px 5.2vw;
+  }
+}
 
-    @include to(1440px) {
-      width: 45%;
+.popup__close-wrapper {
+  height: 100vh;
+  width: 20%;
+
+  @include to(1024px) {
+    background: transparent;
+    width: 100%;
+    height: auto;
+    position: absolute;
+  }
+
+  .popup__close {
+    @include hover-background($dgrc);
+    cursor: pointer;
+    height: 130px;
+    width: 130px;
+    background: $hc;
+    float: right;
+
+    @include to(1600px) {
+      height: 100px;
+      width: 100px;
     }
 
     @include to(1024px) {
-      width: 80%;
-      padding: 0 60px;
+      float: left;
+    }
+
+    @include to(575px) {
+      height: 70px;
+      width: 70px;
+    }
+
+    span {
+      content: '';
+      background: $wc;
+      height: 2px;
+      width: 20px;
+
+      position: absolute;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%) rotate(45deg);
+
+      &:nth-child(2){
+        transform: translate(50%, -50%) rotate(-45deg);
+      }
+
+      @include to(575px) {
+        width: 15px;
+      }
     }
   }
+}
 
-  &.active {
+
+.form-wrapper{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: $popup-close;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 140;
+
+  @include to(1024px) {
+    background: transparent;
+  }
+}
+
+.active-form {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1000;
+}
+
+.call-popup-close {
+  width: 50%;
+
+  @include to(1024px) {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 1000;
+  }
+}
+
+.call-popup-info{
+  width: 50%;
+  background: $main-bcg;
+
+  @include to(1024px) {
+    width: 100%;
+  }
+}
+.form-wrapper {
+
+  form {
+    --margin: 100px;
+    @media screen and (max-width:1024px){
+      
+      --margin: 20px;
+    }
+    position: absolute;
+    @include d-flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: var(--margin);
+    padding-right: var(--margin);
+    height: 100vh;
     opacity: 1;
     visibility: visible;
-  }
-}
-.form-title {
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
-}
-.form-description {
-  color: rgba($color-new-blue, 0.7);
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 40px;
-}
-.form-text {
-  margin-top: 8px;
-}
-.form-close  {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  cursor: pointer;
-  z-index: 1000;
-
-  svg {
-    stroke: var(--color-green);
-    height: 24px;
-    width: 24px;
-
-    @include to(1440px) {
-      height: 18px;
-      width: 18px;
+    transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+  
+    @include to(1024px) {
+      width: 100%;
+      padding-right: 160px;
+      padding-left: 160px;
+    }
+  
+    @include to(575px) {
+      padding-left: var(--margin);
+      padding-right: var(--margin);
     }
   }
 }
-.input-title {
+
+// .not-active {
+//   opacity: 0;
+//   visibility: hidden;
+//   transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
+// }
+
+.form-title {
+  font-size: Min(5vw, 96px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 94%; /* 90.24px */
   text-transform: uppercase;
-
   text-align: center;
-  margin-bottom: 0px;
-}
-.submit-btn, .form-thanks-btn {
-  margin-top: 40px;
-  cursor: pointer;
-  border-left: none;
-  border-right: none;
-  width: 360px;
 
-  @include to(1440px) {
-    width: 310px;
-  }
-}
 
-.form-field-input--checkbox {
-  display: flex;
-  column-gap: 8px;
-  position: relative;
-  margin-bottom: 32px;
-  .form-field__input {
+  @include to(1024px) {
+    font-size: 36px;
+  }
 
-    height: auto !important;
-  }
-  .input-message {
-      position: absolute;
-      top: 100%;
-      left: 0;
-  }
-  a {
-      color: #0d6efd;
-  }
-  input {
-      width: auto;
-      cursor: pointer;
-  }
-  &-subtitle {
-      color: var(--color-gray-body);
-  }
 }
 
 .form-field:not(#t) {
   position: relative;
-  margin: 15px 0 0;
-  background: transparent;
+  background: none;
+  border-bottom: 1px solid rgba(134, 137, 126, 0.25);
   transition: all 0.3s;
-  width: 100%;
-  
-  &.first-offset {
-    margin: 0;
-  }
-}
-
-[data-btn-submit] {
-  margin-top: 32px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 [data-animation="focus"] .input-message {
-  
-  
-  color: var(--color-gray);
   position: absolute;
   top: 50%;
-  left: 0;
+  left: var(--input-padding);
   z-index: 3;
+  padding: 0 7px;
   display: flex;
+  font-weight: 500;
+  font-size: 14px;
   transform: translate(0%, -50%);
   user-select: none;
   pointer-events: none;
+  background-color: #8e8e8e;
   transition: all 0.16s cubic-bezier(0.0, 0, 0.2, 1) 0ms;
 }
-textarea.form-field__input {
-  padding-top: 22px;
-  height: 100px;
 
-  resize: none;
-  @include to(1440px) {
-    height: 100px;
-    padding-top: 16px;
+/*  */
+.form-field-input {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 60px;
+  margin: 60px 0 0;
+
+  @include to(1600px) {
+    margin: 40px 0 0;
+    height: 35px;
+  }
+
+  @include to(1024px) {
+    margin: 50px 0 0;
+  }
+
+  @include to(575px) {
+    margin: 30px 0 0;
   }
 }
+
 .form-field__input {
-  
-  
-  color: rgba($color-new-blue, 0.7);
-  text-align: center;
-  height: 60px;
+  @include open-thin-text(16px, $dgrc, left, 130%);
+  text-transform: uppercase;
   width: 100%;
-  background: var(--color-gray-bg);
-  border-radius: 12px;
+  background: none;
   border: none;
-  padding-left: 24px;
-  padding-right: 24px;
-  cursor: pointer;
-  font-family: $default-font;
-  font-weight: 700;
-  &:focus::placeholder {
-    opacity: 0;
-  }
-  @include to(1440px) {
-    height: 48px;
-    padding-left: 16px;
-  }
+  padding-bottom: 20px;
 
   &::placeholder {
-    
-    
-    color: var(--color-gray-light);
-    text-align: center;
+    color: $dgrc;
   }
   &:focus + .form-field-message {
     opacity: 1;
   }
+
+  @include to(1600px) {
+    font-size: 13px;
+    padding-bottom: 15px;
+  }
+
+  @include to(575px) {
+    font-size: 12px;
+    padding-bottom: 10px;
+  }
 }
+
+.home-content__link {
+  background: $dgrc;
+  border-radius: 200px;
+  border: none;
+  height: 130px;
+  width: 130px;
+  margin-top: 60px;
+  @include animation-circle($hc);
+
+  @include d-flex;
+  justify-content: center;
+
+  @include to(1600px) {
+    height: 100px;
+    width: 100px;
+  }
+
+  @include to(575px) {
+    width: 70px;
+    height: 70px;
+    margin-top: 30px;
+  }
+
+  svg {
+    height: 100%;
+    width: 37px;
+    // transform: rotate(180deg);
+    fill: $wc;
+    z-index: 20;
+    margin-left: 0;
+
+    @include to(1600px) {
+      width: 30px;
+    }
+
+    @include to(575px) {
+      width: 25px;
+    }
+  }
+
+  @include from(1024px) {
+    &:hover {
+      // @include hover-animation-circle;
+      & svg {
+        fill: $wc;
+      }
+    }
+  }
+
+  span {
+    display: none;
+  }
+}
+
+.main-button {
+  margin: 60px 0 0 auto;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1em;
+  color: #CFA46E;
+  border: none;
+  background: none;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
 .mask-absolute {
-  
-  
-  color: var(--color-gray);
-  text-align: left;
+  @include open-thin-text(16px, $dgrc, left, 130%);
+  display: none !important;
+  text-transform: uppercase;
+
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 10;
-  height: 60px;
-  width: 100%;
-  //background: rgba(113, 167, 0, 0.05);
-  //border: 1px solid #F3EFE2;
-  padding-left: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
 
-  @include to(1440px) {
-    height: 48px;
-    padding-left: 16px;
+  width: 100%;
+  padding-bottom: 20px;
+  background-color: $main-bcg;
+  display: block;
+
+  @include to(1600px) {
+    font-size: 13px;
+    padding-bottom: 15px;
+  }
+
+  @include to(575px) {
+    padding-bottom: 10px;
   }
 }
+
 [data-animation="focus"] .form-field__input {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: transparent;
+  border: none;
 }
-[data-animation="none"] .input-message {
-  
-  
-  color: var(--color-gray);
-  text-align: right;
-  position: absolute;
-  bottom: 100%;
-  right: 0;
-  left: auto;
-  display: flex;
-  justify-content: flex-end;
+[data-animation="none"] .form-field__input {
   width: 100%;
-  text-transform: none;
+  border: none;
+}
+
+[data-animation="none"] .input-message {
+  @include open-thin-text(12px, transparent, left, 130%);
+  text-transform: lowercase;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  display: flex;
+  width: 100%;
+  min-height: 12px;
   transform: translate(0%, 100%);
 }
+
+
 [data-field-input][data-status="field--inactive"]:not(#r) {
   .input-message {
-    color: var(--color-gray);
+    @include open-thin-text(16px, transparent, left, 130%);
+    text-transform: uppercase;
   }
 }
+
 [data-field-input][data-status="field--active"]:not(#r) {
+  border-color: $mc;
   .input-message {
-    color: var(--color-gray);
+    color: $mc;
   }
 }
+
 [data-field-input][data-status="field--error"]:not(#r) {
-  .input-title {
-    opacity: 0;
-  }
+  border-color: #EA4041;
   .input-message {
     color: #EA4041;
-    position: absolute;
-    /* top: 0; */
-    /* bottom: auto; */
-    transform: translateY(50%);
-    font-weight: 700;
-    font-size: 10px;
-    transform: translateY(90%);
-    font-weight: 700;
-    font-size: 10px;
-    line-height: 100%;
   }
 }
+
 [data-field-input][data-status="field--success"]:not(#r) {
+  border-color: #96C480;
   .input-message {
     color: #96C480;
   }
 }
+
 .selected:not(#f) .input-message {
   top: 0;
-  
-  
-  color: var(--color-gray);
-  text-align: left;
+  font-size: 10px;
 }
+
 .requaired-block {
   &-ico {
     width: 25px;
     height: 25px;
+
     svg {
       width: 100%;
       height: 100%;
@@ -300,13 +416,37 @@ textarea.form-field__input {
       height: 100%;
     }
   }
+
   &__text {
-    
-    
-    color: var(--color-gray);
-    text-align: left;
+    font-size: vw(16);
+    line-height: 170%;
     margin: 0px vw(18);
     white-space: nowrap;
+
+    color: #BBBEC2;
+  }
+}
+
+.form-textarea {
+  position: relative;
+  margin: 82px 0 0 0;
+  textarea {
+    padding: 0;
+    height: 115px;
+    width: 100%;
+    display: flex;
+    background: none;
+    font-size: 28px;
+    line-height: 100%;
+    color: #FFFFFF;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    &::placeholder {
+      color: #ffffff;
+    }
+    &:focus + .form-field-message {
+      opacity: 1;
+    }
   }
 }
 
@@ -314,10 +454,9 @@ textarea.form-field__input {
   position: absolute;
   top: 0;
   opacity: 0;
-  
-  
-  color: var(--color-gray);
-  text-align: left;
+  font-size: 12px;
+  line-height: 120%;
+  color: #828282;
   transform: translateY(calc(-100% - 10px));
 }
 
@@ -328,121 +467,158 @@ textarea.form-field__input {
   pointer-events: none;
 }
 
+.form-checkbox__wrapper{
+  width: 100%;
+  height: 40px;
+  margin-top: 60px;
+
+  @include to(1600px) {
+    margin-top: 40px;
+  }
+
+  @include to(1024px) {
+    margin-top: 50px;
+  }
+
+  @include to(575px) {
+    margin-top: 30px;
+  }
+}
+
+.form-checkbox {
+  @include d-flex;
+  width: 40%;
+  height: 100%;
+
+  @include open-thin-text(12px, $gc-text, left, 160%);
+  text-transform: uppercase;
+
+  position: relative;
+
+  padding-left: 60px;
+
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  @include to(1600px) {
+    font-size: 10px;
+    padding-left: 47px;
+    width: 35%;
+  }
+
+  @include to(1024px) {
+    width: 40%;
+  }
+
+  @include to(575px) {
+    width: 55%;
+  }
+}
+
+/* Hide the browser's default checkbox */
+.form-checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 40px;
+  width: 40px;
+  background-color: transparent;
+  border-radius: 200px;
+  border: 1px solid rgba(134, 137, 126, 0.25);
+  transition: background-color .3s ease-in-out;
+
+  @include to(1600px) {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+/* On mouse-over, add a grey background color */
+.form-checkbox:hover input ~ .checkmark {
+  background-color: rgba(134, 137, 126, 0.34);
+  transition: background-color .3s ease-in-out;
+}
+
+/* When the checkbox is checked, add a blue background */
+.form-checkbox input:checked ~ .checkmark {
+  background-color: $dgrc;
+  transition: background-color .3s ease-in-out;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.form-checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-checkbox .checkmark:after {
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-width: 0 3px 3px 0;
+}
+
+/* Styles for thank you page */
 .form-thanks-wrapper {
   opacity: 0;
   visibility: hidden;
   height: 100vh;
-  width: 100vw;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  background: rgba(10, 17, 27, 0.5);
-  transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
-  &.active {
+
+  .form-title {
+    @include to(1024px) {
+      max-width: 80%;
+    }
+  }
+
+  &.thanks-active {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.5s ease-out, visibility 1ms linear 0.5s;
-  }
-  .form-thanks {
-    display: flex;
+    @include d-flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    position: relative;
-    width: 50%;
-    height: 40%;
-    background: $wc;
+
+    padding-left: var(--margin);
+    padding-right: var(--margin);
   }
-}
 
-.form {
-  .iti input {
-    padding-right: 60px;
-  }
-}
+  .form-thanks-btn{
+    @include btn-style;
+    @include hover-background;
+    margin-top: 60px;
 
-// @import './form-mobile';
-
-.tablet,
-.mobile {
-  .form-wrapper {
-    background-color: var(--color-white);
-    .form {
-      width: 100%;
-      padding-left: var(--page-side-fields);
-      padding-right: var(--page-side-fields);
-      flex-wrap: wrap;
+    @include to(1600px) {
+      margin-top: 40px;
     }
-    .form-close {
-      top: 70px;
-    }
-    .form-title {
-      margin-bottom: 16px;
-    }
-  }
-}
 
-
-.form-popup {
-  display: flex;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba($color-new-blue, 0.7);
-  z-index: 101;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  &-close {
-    position: absolute;
-    top: var(--page-side-fields);
-    right: var(--page-side-fields);
-    width: 36px;
-    height: 36px;
-    z-index: 10;
-    cursor: pointer;
-    svg {
-      width: 100%;
-      height: 100%;
-      path {
-        stroke: var(--color-new-blue);
-      }
+    @include to(1024px) {
+      margin-top: 50px;
     }
-  }
-  .form-wrapper {
-    display: flex;
-    align-items: stretch;
-    justify-content: flex-end;
-    background: none;
-    height: 100vh;
-    width: 100%;
-    position: static;
-    transform: none;
-    left: 50%;
-    top: 50%;
-    opacity: 1;
-    visibility: visible;
-    overflow: hidden;
-    z-index: 1;
-    .form-close {
-      display: none;
+
+    @include to(575px) {
+      margin-top: 30px;
     }
-  }
-}
-
-
-.mobile {
-  .form-description {
-    font-size: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  [data-btn-submit] {
-    margin-top: 20px;
   }
 }

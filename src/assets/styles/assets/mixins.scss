@@ -56,3 +56,227 @@ $screen-height: 720;
 @function lh($lh, $fz) {
 	@return #{($lh/$fz)}em
 }
+
+$full-width: 1200;
+$work-width: 80;
+$screen-height: 720;
+
+@function vmax($pixels, $context: $full-width) {
+	@return #{($pixels/$context)* 100}vmax
+}  ;
+
+@function vw($pixels, $context: $full-width) {
+	@return  #{($pixels/$context)* 100}vw
+}
+
+@function lh($lh, $fz) {
+	@return #{($lh/$fz)}em
+}
+
+@mixin d-flex ($align: center){
+	display: flex;
+	align-items: $align;
+}
+
+@mixin open-text ($font-size: 14px, $text-color: $wc, $line-height: 130%){
+	font-family: $default-font2;
+	font-size: $font-size;
+	font-style: normal;
+	font-weight: 500;
+
+	text-align: center;
+	line-height: $line-height;
+	letter-spacing: 0.01em;
+
+	text-transform: uppercase;
+	text-decoration: none;
+
+	color: $text-color;
+}
+
+@mixin open-thin-text ($font-size: 14px, $text-color: $wc, $text-align: left, $line-height: 130%){
+	font-family: $default-font3;
+	font-size: $font-size;
+	font-style: normal;
+	font-weight: 400;
+
+	text-align: $text-align;
+	line-height: $line-height;
+	letter-spacing: 0.01em;
+
+	text-transform: none;
+	text-decoration: none;
+
+	color: $text-color;
+}
+
+@mixin open-light-text ($font-size: 15px, $text-color: $wc, $text-align: center, $line-height: 100%){
+	font-family: $default-font4;
+	font-size: $font-size;
+	font-style: normal;
+	font-weight: 300;
+
+	text-align: $text-align;
+	line-height: $line-height;
+	letter-spacing: 0.01em;
+
+	text-transform: none;
+	text-decoration: none;
+
+	color: $text-color;
+}
+
+@mixin tenor-text ($font-size: 40px, $text-color: $dgrc){
+	font-family: $default-font;
+	font-size: $font-size;
+	font-style: normal;
+	font-weight: 400;
+
+	text-align: left;
+	line-height: 110%;
+	letter-spacing: -0.05em;
+
+	text-transform: uppercase;
+	text-decoration: none;
+
+	color: $text-color;
+}
+
+@mixin btn-style($background: $dgrc) {
+	background-color: $dgrc;
+	border: none;
+	border-radius: 500px;
+
+	span {
+		z-index: 20;
+	}
+
+	@include d-flex;
+	justify-content: center;
+
+	@include open-text;
+
+	@include to(1600px) {
+		font-size: 11px;
+	}
+	@include to(575px) {
+		font-size: 10px;
+	}
+}
+
+@mixin menu-underline {
+	transition: color 0.3s ease-in;
+
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 0;
+		border-top: 1px solid $dgrc;
+		transform: translateX(-103%);
+		transition: transform 0.4s ease-in;
+	}
+
+	&:hover {
+		color: $dgrc;
+
+		&:after {
+			transform: translateX(0);
+		}
+	}
+}
+
+@mixin hover-underline ($color: $wc){
+	position: relative;
+
+	@include from(1024px) {
+		&:hover:after {
+			width: 100%;
+		}
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+
+		border-top: 1px solid;
+		border-top-color: $color;
+		transition: width 0.3s ease-in-out;
+	}
+}
+
+@mixin hover-background ($background: $hc){
+	position: relative;
+	overflow: hidden;
+
+	&:before {
+		transform: translateY(100%);
+		background: $background;
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		transition: transform .3s ease-in-out;
+		-webkit-animation: transform .3s ease-in-out;
+	}
+
+	@include from(1024px) {
+		&:hover{
+			&:before {
+				transform: translateY(0);
+				transition: transform .3s ease-in-out;
+			}
+		}
+	}
+}
+
+@mixin animation-circle($background: $dgrc) {
+	position: relative;
+
+	@include from(1024px) {
+		&:before {
+			background: $background;
+			border-radius: 200px;
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			transform: scale(0);
+			transition: transform .3s ease-in-out;
+		}
+	}
+}
+
+@mixin hover-animation-circle {
+	@include from(1024px) {
+		// &:before {
+		// 	transform: scale(1.05);
+		// 	transition: transform .3s ease-in-out;
+		// }
+	}
+}
+
+@mixin hover-arrow {
+	height: 13px;
+	width: 52px;
+	fill: $hc;
+	transition: fill .3s ease-in-out;
+	cursor: pointer;
+
+	@include from(1024px) {
+		&:hover {
+			fill: $dgrc;
+			transition: fill .3s ease-in-out;
+		}
+	}
+}

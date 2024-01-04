@@ -79,7 +79,7 @@ const renderForm = (form, elements, toast) => {
       toast.addToast({
         type: 'error',
         text: i18next.t(form.serverError),
-        title: 'Bir hata oluştu',
+        title: 'Помилка',
       });
       elementsParamFn.$btnSubmit.removeAttribute('disabled');
       elementsParamFn.$btnSubmit.querySelector('[data-btn-submit-text]').innerHTML = i18next.t(

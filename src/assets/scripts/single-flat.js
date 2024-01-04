@@ -2,9 +2,8 @@ import 'current-device';
 const { default: createFloorSvg } = require("./modules/createFloorSvg");
 import { useState } from './modules/helpers/helpers';
 import Popup from './modules/popup/PopupView';
-import './modules/formCallHandler';
 
-
+import './modules/form';
 
 
 
